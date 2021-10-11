@@ -10,7 +10,7 @@ var usersRouter = require('./routes/users');
 var formRouter = require('./routes/form');
 var mysqlRouter = require('./routes/mysql');
 var boardRouter = require('./routes/board');
-
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -29,6 +29,10 @@ app.use('/users', usersRouter);
 app.use('/form',formRouter);
 app.use('/mysql',mysqlRouter);
 app.use('/board',boardRouter)
+app.use('/login', loginRouter);
+
+//static file
+app.use('./public',express.static('public'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
